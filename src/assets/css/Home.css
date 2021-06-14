@@ -1,0 +1,54 @@
+.home-container {
+  width: 100%;
+  height: 100%;
+}
+
+.el-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.el-header {
+  background-color: #373d41;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  line-height: 60px;
+  padding-left: 5px;
+  align-items: center;
+  color: #fff;
+}
+
+.el-header img {
+  width: 60px;
+  height: 60px;
+  vertical-align: bottom;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.el-aside {
+  background-color: #313743;
+}
+
+.el-main {
+  background-color: #e9edf1;
+}
+
+.el-menu {
+  border-right: none;
+}
+
+
+
+.toggle-button {
+  background-color: #484f61;
+  font-size: 10px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.5em;
+  cursor: pointer;
+}

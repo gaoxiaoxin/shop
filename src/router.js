@@ -1,23 +1,66 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: '/login',
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/login',
+      component: () => import( /* webpackChunkName: "login" */ './components/Login.vue')
+    },
+    {
+      path: '/home',
+      component: () => import( /* webpackChunkName: "user" */ './components/user/Home.vue'),
+      redirect: '/welcome',
+      children: [{
+          path: '/welcome',
+          component: () => import( /* webpackChunkName: "user" */ './components/user/Welcome.vue')
+        },
+        {
+          path: '/users',
+          component: () => import( /* webpackChunkName: "user" */ './components/user/users.vue')
+        },
+        {
+          path: '/rights',
+          component: () => import( /* webpackChunkName: "power" */ './components/power/Rights.vue')
+        },
+        {
+          path: '/roles',
+          component: () => import( /* webpackChunkName: "power" */ './components/power/roles.vue')
+        },
+        {
+          path: '/params',
+          component: () => import( /* webpackChunkName: "goods" */ './components/goods/params.vue')
+        },
+        {
+          path: '/categories',
+          component: () => import( /* webpackChunkName: "goods" */ './components/goods/categories.vue')
+        },
+        {
+          path: '/goods',
+          component: () => import( /* webpackChunkName: "goods" */ './components/goods/list.vue')
+        },
+        {
+          path: '/goods/add',
+          component: () => import( /* webpackChunkName: "goods" */ './components/goods/Add.vue')
+        },
+        {
+          path: '/goods/edit',
+          component: () => import( /* webpackChunkName: "goods" */ './components/goods/edit.vue')
+        },
+        {
+          path: '/orders',
+          component: () => import( /* webpackChunkName: "orders" */ './components/orders/orders.vue')
+        },
+        {
+          path: '/reports',
+          component: () => import( /* webpackChunkName: "reports" */ './components/report/Report.vue')
+        }
+      ]
+    },
   ]
 })
